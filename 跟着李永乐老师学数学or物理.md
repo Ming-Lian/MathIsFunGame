@@ -18,7 +18,7 @@
 
 <a name="principle-of-inclusion-exclusion"><h3>2. 容斥原理：春节集卡活动集齐的概率有多大 [<sup>目录</sup>](#content)</h3></a>
 
-<p align="center"><img src=./picture/Follow-LYL-1.jpg width=800 /></p>
+<p align="center"><img src=./picture/Follow-LYL-2.jpg width=800 /></p>
 
 
 ---
