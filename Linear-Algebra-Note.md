@@ -1,3 +1,5 @@
+注意：这篇笔记包含LaTex-Math语法，由于github不支持该语法的解析，如需查看，请移步本人[GitHub Homepage](https://ming-lian.github.io/2019/03/31/Linear-Algebra-Note/)
+
 <a name="content">目录</a>
 
 [线性代数学习笔记](#title)
