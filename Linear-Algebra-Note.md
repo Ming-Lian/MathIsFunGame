@@ -220,6 +220,198 @@ $$
 
 <p align="center"><img src=./picture/Linear-Algebra-understand-matrix-06.png width=600 /></p>
 
+<a name="understand-matrix-multiplication-in-view-of-row-and-column"><h4>2.1.5. 矩阵乘法的行观点和列观点 [<sup>目录</sup>](#content)</h4></a>
+
+首先，需要说明一下矩阵乘法的合法性：
+
+> - $m\times n$ 的矩阵只能和 $n\times p$ 的矩阵相乘；
+> - 相乘后的矩阵大小为 $m\times p$
+
+- 行观点
+
+	$$xA=y$$
+
+	<p align="center"><img src=./picture/Linear-Algebra-understand-matrix-07.png width=600 /></p>
+
+	称为A右乘x
+
+- 列观点
+
+	$$Ax=y$$
+
+	<p align="center"><img src=./picture/Linear-Algebra-understand-matrix-08.png width=600 /></p>
+
+	称为A左乘x
+
+<a name="geometric-meaning-of-matrix-multiplication"><h3>2.2. 矩阵乘法的几何意义 [<sup>目录</sup>](#content)</h3></a>
+
+矩阵函数是一个向量空间向另一个向量空间的映射
+
+例（一）
+
+$$
+A=
+\begin{bmatrix}
+1 & -1 \\
+1 & 1
+\end{bmatrix}
+\quad
+x=
+\begin{bmatrix}
+x_1 \\
+x_2
+\end{bmatrix}
+\quad
+y=
+\begin{bmatrix}
+y_1 \\
+y_2
+\end{bmatrix}
+$$
+
+$$Ax=y$$
+
+则为从$\mathbb{R}^2 \Rightarrow \mathbb{R}^2$
+
+例（二）
+
+$$
+\begin{bmatrix}
+1 & -1 \\
+1 & 1 \\
+1 & 2
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\
+x_2
+\end{bmatrix}
+=
+\begin{bmatrix}
+y_1 \\
+y_2 \\
+y_3
+\end{bmatrix}
+$$
+
+则为从$\mathbb{R}^2 \Rightarrow \mathbb{R}^3$
+
+<a name="base-transformation"><h4>2.2.1. 基的变换 [<sup>目录</sup>](#content)</h4></a>
+
+<a name="mapping-method-base-transformation"><h5>2.2.1.1. 矩阵映射法则——基的变换 [<sup>目录</sup>](#content)</h5></a>
+
+在$\mathbb{R}^2$的向量空间中，它的自然基（笛卡尔坐标系）为：
+
+$$\vec i=\begin{bmatrix} 1 \\ 0 \end{bmatrix}\quad \vec j=\begin{bmatrix} 0 \\ 1 \end{bmatrix}$$
+
+令 $A=\begin{bmatrix} 1 & -1 \\ 1 & 1 \end{bmatrix}$
+
+自然基下向量 $a=\begin{bmatrix} 1 \\ 1 \end{bmatrix}=1 \vec i+1 \vec j$
+
+则 $Aa=b$ 根据矩阵乘法
+
+$$
+Aa=
+\begin{bmatrix} 
+1 & -1 \\
+1 & 1 
+\end{bmatrix}
+\begin{bmatrix}
+1 \\
+1 
+\end{bmatrix}
+=
+1\begin{bmatrix} 1 \\ 1 \end{bmatrix} + 1\begin{bmatrix} -1 \\ 1 \end{bmatrix}
+=
+\begin{bmatrix} 0 \\ 2 \end{bmatrix}
+=b
+$$
+
+为了看起来更清晰，我们令
+
+$$\vec c_1 = \begin{bmatrix} 1 \\ 1 \end{bmatrix} \quad \vec c_2 = \begin{bmatrix} -1 \\ 1 \end{bmatrix}$$
+
+则 $A=[\vec c_1 \quad \vec c_2]$，因此$Aa=b$可以表示成以下形式：
+
+$$
+a = 1 \vec i + \vec j \quad \begin{matrix} A \\ \rightarrow \end{matrix} \quad b = 1 \vec c_1 + 1 \vec c_2
+$$
+
+从上面很容易能看出，这个矩阵的乘法规则就是：保持系数不变，但是自然基被矩阵列向量给替换了
+
+<p align="center"><img src=./picture/Linear-Algebra-understand-matrix-09.png width=600 /></p>
+
+从几何上感受一下
+
+<p align="center"><img src=./picture/Linear-Algebra-understand-matrix-10.png width=600 /></p>
+
+<a name="example-of-base-transformation-orientation-matrix"><h5>2.2.1.2. 基变换的一个实例——旋转矩阵 [<sup>目录</sup>](#content)</h5></a>
+
+通过旋转矩阵$\begin{bmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{bmatrix}$，可以让$\mathbb{R}^2$中的x旋转$\theta$角得到y
+
+来理解一下旋转矩阵是怎么做到的
+
+单位圆中，与x轴夹角为$\theta$的向量表示如下：
+
+<p align="center"><img src=./picture/Linear-Algebra-understand-matrix-11.png width=300 /></p>
+
+则
+
+<p align="center"><img src=./picture/Linear-Algebra-understand-matrix-12.png width=300 /></p>
+
+再看看另一个正交向量的旋转
+
+根据三角公式有
+
+$$
+\begin{cases}
+-\sin\theta = \cos(\frac \pi2 + \theta) \\
+\cos\theta = \sin(\frac \pi2 + \theta)
+\end{cases}
+$$
+
+则向量 $\begin{bmatrix} -\sin\theta \\ \cos\theta \end{bmatrix}$表示的是有y轴夹角为$\theta$的向量，则
+
+<p align="center"><img src=./picture/Linear-Algebra-understand-matrix-13.png width=300 /></p>
+
+结合之前对映射法则的讲解，就可以理解旋转矩阵了：
+
+<p align="center"><img src=./picture/Linear-Algebra-understand-matrix-14.png width=600 /></p>
+
+> 旋转矩阵的原理，就是通过旋转基来实现的
+
+<a name="dot-multiply"><h4>2.2.2. 点积——向新基的投影 [<sup>目录</sup>](#content)</h4></a>
+
+还是使用上面用到的例子
+
+$$A=\begin{bmatrix} 1 & -1 \\ 1 & 1 \end{bmatrix} \quad a=\begin{bmatrix} 1 \\ 1 \end{bmatrix}$$
+
+令 $\vec c_1 = [1 \quad -1 ]$，$\vec c_2 = [1 \quad 1 ]$，则$A=\begin{bmatrix} - \vec c_1 -  \\ - \vec c_2 - \end{bmatrix}$
+
+则
+
+$$
+Aa=
+\begin{bmatrix} - \vec c_1 - \\ - \vec c_2 - \end{bmatrix} [\vec a]
+=
+\begin{bmatrix} \vec c_1 \vec a \\ \vec c_2 \vec a \end{bmatrix}
+$$
+
+而我们知道，两个向量之间的点积运算规则为：
+
+$$\vec a · \vec b = |\vec a|·|\vec b|·\cos<\vec a,\vec b>$$
+
+即，$\vec a$ 的长度与 $\vec b$ 在 $\vec a$ 上的投影长度的乘积
+
+从几何上感受一下
+
+<p align="center"><img src=./picture/Linear-Algebra-understand-matrix-15.png/></p>
+
+因此，从点积的角度来理解矩阵乘法的几何意义为（这里只讨论矩阵左乘，即为$Ax$形式的矩阵乘法）：
+
+> 将$m\times n$的矩阵A看作是$m$个$n$维行向量，这就是新的基，然后将一个在自然基下的$n$维向量$x$向这个新基“投影”（分别向新基的$m$个基向量“投影”，注意这里的“投影”与我们通常所说的投影有些不同：投影后还要将两者的长度相乘），得到这个向量在新基张成的向量空间的新坐标$y$
+
+
+
 ---
 
 参考资料：
