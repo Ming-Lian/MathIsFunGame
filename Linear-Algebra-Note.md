@@ -138,9 +138,9 @@
 	- [7.2. 正交化](#orthogonalization)
 		- [7.2.1. 施密特正交化的思路](#idea-of-schmidt-orthogonalization)
 		- [7.2.2. 施密特正交化的推导](#deduce-of-schmidt-orthogonalization)
-		- [7.2.2.1. 两个向量的正交化](#orthogonalization-for-2-vectors)
-		- [7.2.2.2. 三个向量的正交化](#orthogonalization-for-3-vectors)
-		- [7.2.2.3. n个向量的正交化](#orthogonalization-for-n-vectors)
+			- [7.2.2.1. 两个向量的正交化](#orthogonalization-for-2-vectors)
+			- [7.2.2.2. 三个向量的正交化](#orthogonalization-for-3-vectors)
+			- [7.2.2.3. n个向量的正交化](#orthogonalization-for-n-vectors)
 
 <h1 name="title">线性代数学习笔记</h1>
 
