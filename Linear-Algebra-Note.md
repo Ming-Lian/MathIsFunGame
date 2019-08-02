@@ -387,16 +387,7 @@ $$Ax=y$$
 例（二）
 
 $$
-\begin{bmatrix}
-1 & -1 \\\\
-1 & 1 \\\\
-1 & 2
-\end{bmatrix}
-\begin{bmatrix}
-x_1 \\\\
-x_2
-\end{bmatrix}
-=
+\begin{bmatrix} 1 & -1 \\\\ 1 & 1 \\\\ 1 & 2 \end{bmatrix} \begin{bmatrix} x_1 \\\\ x_2 \end{bmatrix} =
 \begin{bmatrix}
 y_1 \\\\
 y_2 \\\\
