@@ -181,8 +181,8 @@ $$
 
 $$
 \begin{cases}
-x & + & 0 & + & 0 & = & \frac{e_3}{a_{11}}\\
-0 & + & y & + & 0 & = & \frac{f_3}{b_{22}}\\
+x & + & 0 & + & 0 & = & \frac{e_3}{a_{11}}\\\\
+0 & + & y & + & 0 & = & \frac{f_3}{b_{22}}\\\\
 0 & + & 0 & + & z & = & \frac{g_3}{c_{33}}
 \end{cases}
 $$
@@ -197,7 +197,7 @@ $$
 
 $$
 \begin{cases}
-x & + & 2y & = & 3 \\\
+x & + & 2y & = & 3 \\\\
 3x & + & 4y & = & 5
 \end{cases}
 $$
@@ -206,7 +206,7 @@ $$
 
 $$
 \begin{matrix}
-1 & 2 \\\
+1 & 2 \\\\
 3 & 4
 \end{matrix}
 $$
@@ -215,7 +215,7 @@ $$
 
 $$
 \begin{matrix}
-1 & 2 & 3 \\\
+1 & 2 & 3 \\\\
 3 & 4 & 5
 \end{matrix}
 $$
@@ -230,14 +230,14 @@ $$
 
 $$
 \begin{cases}
-x & + & 2y & = & 3 \\\
+x & + & 2y & = & 3 \\\\
 3x & + & 4y & = & 5
 \end{cases}
 
 \to
 
 \begin{cases}
-x & + & 0y & = & ? \\\
+x & + & 0y & = & ? \\\\
 0 & + & y & = & ?
 \end{cases}
 $$
@@ -246,12 +246,12 @@ $$
 
 $$
 \begin{matrix}
-1 & 2 & 3 & \\
+1 & 2 & 3 & \\\\
 3 & 4 & 5 &
 \end{matrix}
 \to
 \begin{matrix}
-& 1 & 0 & ? \\
+& 1 & 0 & ? \\\\
 & 0 & 1 & ?
 \end{matrix}
 $$
@@ -260,12 +260,12 @@ $$
 
 $$
 \begin{cases}
-x & + & 2y & = & 3 & 【方程1】 & \\
+x & + & 2y & = & 3 & 【方程1】 & \\\\
 3x & + & 4y & = & 5 & 【方程2】 &
 \end{cases}
 矩阵表示为
 \begin{matrix}
-& 1 & 2 & 3 & \\
+& 1 & 2 & 3 & \\\\
 & 3 & 4 & 5 &
 \end{matrix}
 $$
@@ -277,7 +277,7 @@ $$
 \frac
 {
 	\begin{matrix}
-	& -3 & 【方程1】 \\
+	& -3 & 【方程1】 \\\\
 	+ & & 【方程2】
 \end{matrix}}
 {【新方程2】}
@@ -287,12 +287,12 @@ $$
 
 $$
 \begin{cases}
-x & + & 2y & = & 3 & \\
+x & + & 2y & = & 3 & \\\\
 0x & - & 2y & = & -4 &
 \end{cases}
 矩阵表示为
 \begin{matrix}
-& 1 & 2 & 3 & \\
+& 1 & 2 & 3 & \\\\
 & 0 & -2 & -4 &
 \end{matrix}
 $$
@@ -303,11 +303,11 @@ $$
 
 $$
 \begin{matrix}
-& 1 & 2 & 3 & & r_2'=-3r_1+r_2 & \\
+& 1 & 2 & 3 & & r_2'=-3r_1+r_2 & \\\\
 & 3 & 4 & 5 & & \to &
 \end{matrix}
 \begin{matrix}
-& 1 & 2 & 3 & \\
+& 1 & 2 & 3 & \\\\
 & 0 & -2 & -4 &
 \end{matrix}
 $$
@@ -363,19 +363,19 @@ $$
 $$
 A=
 \begin{bmatrix}
-1 & -1 \\
+1 & -1 \\\\
 1 & 1
 \end{bmatrix}
 \quad
 x=
 \begin{bmatrix}
-x_1 \\
+x_1 \\\\
 x_2
 \end{bmatrix}
 \quad
 y=
 \begin{bmatrix}
-y_1 \\
+y_1 \\\\
 y_2
 \end{bmatrix}
 $$
@@ -388,18 +388,18 @@ $$Ax=y$$
 
 $$
 \begin{bmatrix}
-1 & -1 \\
-1 & 1 \\
+1 & -1 \\\\
+1 & 1 \\\\
 1 & 2
 \end{bmatrix}
 \begin{bmatrix}
-x_1 \\
+x_1 \\\\
 x_2
 \end{bmatrix}
 =
 \begin{bmatrix}
-y_1 \\
-y_2 \\
+y_1 \\\\
+y_2 \\\\
 y_3
 \end{bmatrix}
 $$
@@ -412,39 +412,39 @@ $$
 
 在$\mathbb{R}^2$的向量空间中，它的自然基（笛卡尔坐标系）为：
 
-$$\vec i=\begin{bmatrix} 1 \\ 0 \end{bmatrix}\quad \vec j=\begin{bmatrix} 0 \\ 1 \end{bmatrix}$$
+$$\vec i=\begin{bmatrix} 1 \\\\ 0 \end{bmatrix}\quad \vec j=\begin{bmatrix} 0 \\\\ 1 \end{bmatrix}$$
 
-令 $A=\begin{bmatrix} 1 & -1 \\ 1 & 1 \end{bmatrix}$
+令 $A=\begin{bmatrix} 1 & -1 \\\\ 1 & 1 \end{bmatrix}$
 
-自然基下向量 $a=\begin{bmatrix} 1 \\ 1 \end{bmatrix}=1 \vec i+1 \vec j$
+自然基下向量 $a=\begin{bmatrix} 1 \\\\ 1 \end{bmatrix}=1 \vec i+1 \vec j$
 
 则 $Aa=b$ 根据矩阵乘法
 
 $$
 Aa=
 \begin{bmatrix} 
-1 & -1 \\
+1 & -1 \\\\
 1 & 1 
 \end{bmatrix}
 \begin{bmatrix}
-1 \\
+1 \\\\
 1 
 \end{bmatrix}
 =
-1\begin{bmatrix} 1 \\ 1 \end{bmatrix} + 1\begin{bmatrix} -1 \\ 1 \end{bmatrix}
+1\begin{bmatrix} 1 \\\\ 1 \end{bmatrix} + 1\begin{bmatrix} -1 \\\\ 1 \end{bmatrix}
 =
-\begin{bmatrix} 0 \\ 2 \end{bmatrix}
+\begin{bmatrix} 0 \\\\ 2 \end{bmatrix}
 =b
 $$
 
 为了看起来更清晰，我们令
 
-$$\vec c_1 = \begin{bmatrix} 1 \\ 1 \end{bmatrix} \quad \vec c_2 = \begin{bmatrix} -1 \\ 1 \end{bmatrix}$$
+$$\vec c_1 = \begin{bmatrix} 1 \\\\ 1 \end{bmatrix} \quad \vec c_2 = \begin{bmatrix} -1 \\\\ 1 \end{bmatrix}$$
 
 则 $A=[\vec c_1 \quad \vec c_2]$，因此$Aa=b$可以表示成以下形式：
 
 $$
-a = 1 \vec i + \vec j \quad \begin{matrix} A \\ \rightarrow \end{matrix} \quad b = 1 \vec c_1 + 1 \vec c_2
+a = 1 \vec i + \vec j \quad \begin{matrix} A \\\\ \rightarrow \end{matrix} \quad b = 1 \vec c_1 + 1 \vec c_2
 $$
 
 从上面很容易能看出，这个矩阵的乘法规则就是：保持系数不变，但是自然基被矩阵列向量给替换了
@@ -457,7 +457,7 @@ $$
 
 <a name="example-of-base-transformation-orientation-matrix"><h5>2.2.1.2. 基变换的一个实例——旋转矩阵 [<sup>目录</sup>](#content)</h5></a>
 
-通过旋转矩阵$\begin{bmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta\end{bmatrix}$，可以让$\mathbb{R}^2$中的x旋转$\theta$角得到y
+通过旋转矩阵$\begin{bmatrix} \cos\theta & -\sin\theta \\\\ \sin\theta & \cos\theta\end{bmatrix}$，可以让$\mathbb{R}^2$中的x旋转$\theta$角得到y
 
 来理解一下旋转矩阵是怎么做到的
 
@@ -475,12 +475,12 @@ $$
 
 $$
 \begin{cases}
--\sin\theta = \cos(\frac \pi2 + \theta) \\
+-\sin\theta = \cos(\frac \pi2 + \theta) \\\\
 \cos\theta = \sin(\frac \pi2 + \theta)
 \end{cases}
 $$
 
-则向量 $\begin{bmatrix} -\sin\theta \\ \cos\theta \end{bmatrix}$表示的是有y轴夹角为$\theta$的向量，则
+则向量 $\begin{bmatrix} -\sin\theta \\\\ \cos\theta \end{bmatrix}$表示的是有y轴夹角为$\theta$的向量，则
 
 <p align="center"><img src=./picture/Linear-Algebra-understand-matrix-13.png width=300 /></p>
 
@@ -494,17 +494,17 @@ $$
 
 还是使用上面用到的例子
 
-$$A=\begin{bmatrix} 1 & -1 \\ 1 & 1 \end{bmatrix} \quad a=\begin{bmatrix} 1 \\ 1 \end{bmatrix}$$
+$$A=\begin{bmatrix} 1 & -1 \\\\ 1 & 1 \end{bmatrix} \quad a=\begin{bmatrix} 1 \\\\ 1 \end{bmatrix}$$
 
-令 $\vec c_1 = [1 \quad -1 ]$，$\vec c_2 = [1 \quad 1 ]$，则$A=\begin{bmatrix} - \vec c_1 -  \\ - \vec c_2 - \end{bmatrix}$
+令 $\vec c_1 = [1 \quad -1 ]$，$\vec c_2 = [1 \quad 1 ]$，则$A=\begin{bmatrix} - \vec c_1 -  \\\\ - \vec c_2 - \end{bmatrix}$
 
 则
 
 $$
 Aa=
-\begin{bmatrix} - \vec c_1 - \\ - \vec c_2 - \end{bmatrix} [\vec a]
+\begin{bmatrix} - \vec c_1 - \\\\ - \vec c_2 - \end{bmatrix} [\vec a]
 =
-\begin{bmatrix} \vec c_1 \vec a \\ \vec c_2 \vec a \end{bmatrix}
+\begin{bmatrix} \vec c_1 \vec a \\\\ \vec c_2 \vec a \end{bmatrix}
 $$
 
 而我们知道，两个向量之间的点积运算规则为：
