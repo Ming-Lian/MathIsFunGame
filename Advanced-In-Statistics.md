@@ -8,8 +8,11 @@
     - [1.4. Beta分布与二项分布的关系](#relation-between-beta-distribution-and-binomial-distribution)
     - [1.5. Beta分布与均匀分布的关系](#relation-between-beta-distribution-and-uniform-distribution)
 - [2. Permutation Test](#permutation-test)
-  - [2.1. 利用Permutation Test进行单次假设检验](#permutation-test-for-hyposis-test)
+  - [2.1. 用Permutation Test进行单次假设检验——empirical permutation p-values](#permutation-test-for-hyposis-test)
+    - [2.1.1. 原理](#permutation-test-for-hyposis-test-principle)
+    - [2.1.2. R实现](#permutation-test-for-hyposis-test-in-r)
   - [2.2. 利用Permutation Test进行多重假设检验的FDR校正](#permutation-test-for-fdr-correction)
+  - [2.3. 用R做permutation test](#permutation-test-use-r)
 
 
 
@@ -264,7 +267,9 @@ $$
 
 <a name="permutation-test"><h2>2. Permutation Test [<sup>目录</sup>](#content)</h2></a>
 
-<a name="permutation-test-for-hyposis-test"><h3>2.1. 利用Permutation Test进行单次假设检验 [<sup>目录</sup>](#content)</h3></a>
+<a name="permutation-test-for-hyposis-test"><h3>2.1. 用Permutation Test进行单次假设检验——empirical permutation p-values [<sup>目录</sup>](#content)</h3></a>
+
+<a name="permutation-test-for-hyposis-test-principle"><h4>2.1.1. 原理 [<sup>目录</sup>](#content)</h4></a>
 
 假如你是羊驼牧羊人。 就像任何羊驼牧羊犬都会告诉您的那样，您最需要关注的是羊群的羊毛质量。
 
@@ -316,6 +321,29 @@ $$
     $$p-value= \frac{16}{200} = 0.08$$
 
 - 与拒绝域进行比较，来决定是否拒绝原假设
+
+<a name="permutation-test-for-hyposis-test-principle"><h4>2.1.2. R实现 [<sup>目录</sup>](#content)</h4></a>
+
+```R
+library(qvalue)
+
+set.seed(3333)
+B = 1000 # permutation实验次数
+tstats_obj = rowttests(edata,pdata$strain) # 对每行代表的基因执行t检验，该函数来自于genefilter
+tstat0 = matrix(NA,nrow=dim(edata)[1],ncol=B) # 初始化permutation结果矩阵
+tstat = tstats_obj$statistic
+strain = pdata$strain
+# 执行permutation test
+for(i in 1:B){
+  strain0 = sample(strain)
+  tstat0[,i] = rowttests(edata,strain0)$statistic
+}
+
+# 计算empirical permutation p-values，可以在单个基因内部进行比较（基于各个基因各自的null distribution计算empirical permutation p-values，参数设置为pooled=FALSE）
+# 也可以将全部基因混合得到一个共有的null distribution，各个基因基于这个共有的null distribution计算p值（参数设置为pooled=TRUE）
+# p-value_i=#{x_ij|x_ij>x_i}/#{x_ij}
+emp_pvals = empPvals(tstat,tstat0) # empPvals函数来自于qvalue
+```
 
 <a name="permutation-test-for-fdr-correction"><h3>2.2. 利用Permutation Test进行多重假设检验的FDR校正 [<sup>目录</sup>](#content)</h3></a>
 
@@ -377,4 +405,6 @@ $$FDR(p)=P(X \ge p) = \frac{\#\{X|X\ge p\}}{\#\{X\}}$$
 
 (3) [Permutaion Test](https://www.jwilber.me/permutationtest/)
 
-(4) Li, B., Li, T., Pignon, J. et al. Landscape of tumor-infiltrating T cell repertoire of human cancers. Nat Genet 48, 725–732 (2016)
+(4) [Permutation in R](http://jtleek.com/genstats/inst/doc/03_14_P-values-and-Multiple-Testing.html)
+
+(5) Li, B., Li, T., Pignon, J. et al. Landscape of tumor-infiltrating T cell repertoire of human cancers. Nat Genet 48, 725–732 (2016)
