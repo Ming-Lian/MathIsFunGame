@@ -8,6 +8,8 @@
     - [1.4. Beta分布与二项分布的关系](#relation-between-beta-distribution-and-binomial-distribution)
     - [1.5. Beta分布与均匀分布的关系](#relation-between-beta-distribution-and-uniform-distribution)
 - [2. Permutation Test](#permutation-test)
+  - [2.1. 利用Permutation Test进行单次假设检验](#permutation-test-for-hyposis-test)
+  - [2.2. 利用Permutation Test进行多重假设检验的FDR校正](#permutation-test-for-fdr-correction)
 
 
 
@@ -262,6 +264,8 @@ $$
 
 <a name="permutation-test"><h2>2. Permutation Test [<sup>目录</sup>](#content)</h2></a>
 
+<a name="permutation-test-for-hyposis-test"><h3>2.1. 利用Permutation Test进行单次假设检验 [<sup>目录</sup>](#content)</h3></a>
+
 假如你是羊驼牧羊人。 就像任何羊驼牧羊犬都会告诉您的那样，您最需要关注的是羊群的羊毛质量。
 
 库斯科街头有消息说，一种流行的新型洗发水可提高羊驼毛的羊毛质量。 但是，您不是个傻瓜-你不会人云亦云，您将确定找出答案。您将使用统计数据测试差异。
@@ -313,6 +317,56 @@ $$
 
 - 与拒绝域进行比较，来决定是否拒绝原假设
 
+<a name="permutation-test-for-fdr-correction"><h3>2.2. 利用Permutation Test进行多重假设检验的FDR校正 [<sup>目录</sup>](#content)</h3></a>
+
+在【Li et al, Nat Genet, 2016】这篇文章中，就使用了这种方法
+
+问题：
+
+> 给定癌症样本的TCR CDR3 motif的检出情况——motif sharing matrix
+> 
+> | ` ` | motif1 | motif2 | ... | motifi | ... |
+> |:---|:---|:---|:---|:---|:---|
+> | sample1 | 1 | 0 | ... | 0 | ... |
+> | sample2 | 0 | 0 | ... | 1 | ... |
+> | ... | ... | ... | ... | ... | ... |
+> | samplej | 0 | 1 | ... | 0 | ... |
+> | ... | ... | ... | ... | ... | ... |
+> 
+> 与各样本中的基因组错义突变的检出情况——NS mutation sharing matrix
+> 
+> | ` ` | NM1 | NM2 | ... | NMi | ... |
+> |:---|:---|:---|:---|:---|:---|
+> | sample1 | 1 | 0 | ... | 0 | ... |
+> | sample2 | 0 | 0 | ... | 1 | ... |
+> | ... | ... | ... | ... | ... | ... |
+> | samplej | 0 | 1 | ... | 0 | ... |
+> | ... | ... | ... | ... | ... | ... |
+> 
+> 注：NM是nonsynonymous somatic mutations的缩写
+> 
+> 根据motif-mutation co-occurrences，得到co-occurrences的显著相关的motif-mutation对
+
+（1）利用Fisher精确检验评估每个motif-mutation对，$motif_i-NM_j$的co-occurrences的显著相关性p值
+
+| ` ` | with NMj | without NMj | total |
+|:---|:---|:---|:---|
+| with motifi | a | b | a + b |
+| without motifi | c | d | c+ d |
+| total | a + c | b + d | n |
+
+$$p-value=\frac{C^{c}_{a+c}C^{b}_{b+d}}{C^{a+b}_{n}}$$
+
+（2）进行1000次permutation：
+
+> 打乱motif sharing matrix的样本ID，然后基于新的motif sharing matrix和NS mutation sharing matrix，基于motif-mutation pairs的co-occurrences进行Fisher's exact test，得到p值
+
+（3）将每次permutation实验的最小的K个p值混合，得到零假设的概率分布，基于此可以得到对应p值下的FDR：
+
+$$FDR(p)=P(X \ge p) = \frac{\#\{X|X\ge p\}}{\#\{X\}}$$
+
+
+
 ---
 
 参考资料：
@@ -322,3 +376,5 @@ $$
 (2) [StatLect《Beta distribution》](https://www.statlect.com/probability-distributions/beta-distribution)
 
 (3) [Permutaion Test](https://www.jwilber.me/permutationtest/)
+
+(4) Li, B., Li, T., Pignon, J. et al. Landscape of tumor-infiltrating T cell repertoire of human cancers. Nat Genet 48, 725–732 (2016)
