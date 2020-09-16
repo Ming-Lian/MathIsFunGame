@@ -277,7 +277,7 @@ $$
 
 - 随机化
 
-    ![](./Statistic-Advanced-permutation-test-1.png)
+    ![](./picture/Statistic-Advanced-permutation-test-1.png)
 
     第一步，我们随机将羊驼采样的一半分配给新的洗发水，将一半分配给旧的洗发水。
 
@@ -287,23 +287,23 @@ $$
 
 - 响应值
 
-    ![](./Statistic-Advanced-permutation-test-2.png)
+    ![](./picture/Statistic-Advanced-permutation-test-2.png)
 
 - 计算统计量
 
     $$\phi = μ_{Treatment} - μ_{Control}$$
 
-    ![](./Statistic-Advanced-permutation-test-3.png)
+    ![](./picture/Statistic-Advanced-permutation-test-3.png)
 
 - 通过多次permutaion，获得统计量的概率分布，即为在以零假设成立的前提下，统计量$\phi$的概率分布
 
-    ![](./Statistic-Advanced-permutation-test-4.png)
+    ![](./picture/Statistic-Advanced-permutation-test-4.png)
 
-    ![](./Statistic-Advanced-permutation-test-5.png)
+    ![](./picture/Statistic-Advanced-permutation-test-5.png)
 
 - 根据统计量的概率分布，计算$\phi$不小于实际观测结果的概率p，即为下图右侧部分：
 
-    ![](./Statistic-Advanced-permutation-test-6.png)
+    ![](./picture/Statistic-Advanced-permutation-test-6.png)
 
     那么如何计算这个p值呢？
 
