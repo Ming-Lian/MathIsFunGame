@@ -383,7 +383,7 @@ emp_pvals = empPvals(tstat,tstat0) # empPvals函数来自于qvalue
 | without motifi | c | d | c+ d |
 | total | a + c | b + d | n |
 
-$$p-value=\frac{C^{c}_{a+c}C^{b}_{b+d}}{C^{a+b}_{n}}$$
+$$p-value=\frac{\dbinom{a+c}{c}\dbinom{b+d}{b}}{\dbinom{n}{a+b}}$$
 
 （2）进行1000次permutation：
 
@@ -391,7 +391,7 @@ $$p-value=\frac{C^{c}_{a+c}C^{b}_{b+d}}{C^{a+b}_{n}}$$
 
 （3）将每次permutation实验的最小的K个p值混合，得到零假设的概率分布，基于此可以得到对应p值下的FDR：
 
-$$FDR(p)=P(X \ge p) = \frac{\#\{X|X\ge p\}}{\#\{X\}}$$
+$$FDR(p)=P(X \ge p) = \frac{\sharp\{X|X\ge p\}}{\sharp\{X\}}$$
 
 
 
