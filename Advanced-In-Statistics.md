@@ -98,8 +98,8 @@ $$P(K=k)=\int_0^1 \begin{pmatrix}n \\ k\\ \end{pmatrix}x^k(1-x)^{n-k}\mathbf dx
 
 > 先将这 $n+1$ 个球都丢出来，再选择一个球作为红球，任何一个球被选中的概率均为 $\displaystyle 1 \over n+1$，此时红球左边有 $0,1,2...n$ 个球的概率均为 $\displaystyle 1 \over n+1$，有
 >
-> $$P(K=k)=\int_0^1 \begin{pmatrix}n\\ k\\ \end{pmatrix}x^k(1-x)^{n-k}\mathbf dx
-=\begin{pmatrix}n\\ k\\ \end{pmatrix}\int_0^1 x^k(1-x)^{n-k}\mathbf dx=\frac{1}{n+1}$$
+> $$P(K=k)=\int_0^1 \dbinom{n}{k}x^k(1-x)^{n-k}\mathbf dx
+=\dbinom{n}{k}\int_0^1 x^k(1-x)^{n-k}\mathbf dx=\frac{1}{n+1}$$
 >
 > 则
 >
@@ -135,12 +135,12 @@ $$f(x;\alpha,\beta) = \frac{1}{B(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}=\frac
 
     $$
     \begin{aligned}
-    &\quad E[X] \\
-    &= \int_0^1 x f(x;\alpha,\beta) \\
-    &= \int_0^1 x \frac{x^{\alpha-1}(1-x)^{\beta-1}} {B(\alpha,\beta) }  \mathbf dx \\
-    &= \frac{1} {B(\alpha,\beta)} \int_0^1 x^{\alpha}(1-x)^{\beta-1} \mathbf dx \\
-    &= \frac{B(\alpha+1,\beta)}{B(\alpha,\beta)} \\
-    &= \frac{\Gamma(\alpha+1)\Gamma(\beta)}{\Gamma(\alpha+\beta+1)}\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \\
+    &\quad E[X] \newline
+    &= \int_0^1 x f(x;\alpha,\beta) \newline
+    &= \int_0^1 x \frac{x^{\alpha-1}(1-x)^{\beta-1}} {B(\alpha,\beta) }  \mathbf dx \newline
+    &= \frac{1} {B(\alpha,\beta)} \int_0^1 x^{\alpha}(1-x)^{\beta-1} \mathbf dx \newline
+    &= \frac{B(\alpha+1,\beta)}{B(\alpha,\beta)} \newline
+    &= \frac{\Gamma(\alpha+1)\Gamma(\beta)}{\Gamma(\alpha+\beta+1)}\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \newline
     &= \frac{\alpha}{\alpha+\beta}
     \end{aligned}
     $$
@@ -149,19 +149,19 @@ $$f(x;\alpha,\beta) = \frac{1}{B(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}=\frac
 
     由于$Var[X]=E(X^2)-E(X)^2$
 
-    > $$\begin{aligned}&\quad Var[X] \\ &=E\left [(X-E[X])^2 \right ]\\ &=E \left [X^2-2XE(X)+E[X]^2 \right ] \\ &= E[X^2]-2E[X]E[X]+E[X]^2 \\ &= E(X^2)-E(X)^2\end{aligned}$$
+    > $$\begin{aligned}&\quad Var[X] \newline &=E\left [(X-E[X])^2 \right ]\newline &=E \left [X^2-2XE(X)+E[X]^2 \right ] \newline &= E[X^2]-2E[X]E[X]+E[X]^2 \newline &= E(X^2)-E(X)^2\end{aligned}$$
 
     那么，先求$E(X^2)$
 
     $$
     \begin{aligned}
-    &\quad E(X^2) \\
-    &= \int_{-\infty}^{\infty} x^2f(x)dx \\
-    &= \int_0^1 x^2 \frac{1}{B(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}dx \\
-    &= \frac{1}{B(\alpha,\beta)} \int_0^1 x^{\alpha+1}(1-x)^{\beta-1}dx \\
-    &= \frac{B(\alpha+2,\beta)}{B(\alpha,\beta)} \\
-    &= \frac{\Gamma(\alpha+2)\Gamma(\beta)}{\Gamma(\alpha+\beta+2)}\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \\
-    &= \frac{[\Gamma(\alpha)(\alpha+1)\alpha]\Gamma(\beta)}{\Gamma(\alpha+\beta)(\alpha+\beta+1)(\alpha+\beta)}\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \\
+    &\quad E(X^2) \newline
+    &= \int_{-\infty}^{\infty} x^2f(x)dx \newline
+    &= \int_0^1 x^2 \frac{1}{B(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}dx \newline
+    &= \frac{1}{B(\alpha,\beta)} \int_0^1 x^{\alpha+1}(1-x)^{\beta-1}dx \newline
+    &= \frac{B(\alpha+2,\beta)}{B(\alpha,\beta)} \newline
+    &= \frac{\Gamma(\alpha+2)\Gamma(\beta)}{\Gamma(\alpha+\beta+2)}\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \newline
+    &= \frac{[\Gamma(\alpha)(\alpha+1)\alpha]\Gamma(\beta)}{\Gamma(\alpha+\beta)(\alpha+\beta+1)(\alpha+\beta)}\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)} \newline
     &= \frac{(\alpha+1)\alpha}{(\alpha+\beta+1)(\alpha+\beta)}
     \end{aligned}
     $$
@@ -170,10 +170,10 @@ $$f(x;\alpha,\beta) = \frac{1}{B(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}=\frac
 
     $$
     \begin{aligned}
-    &\quad Var[X] \\
-    &= E[X^2]-E[X]^2 \\
-    &= \frac{(\alpha+1)\alpha}{(\alpha+\beta+1)(\alpha+\beta)} - \left (\frac{\alpha}{\alpha+\beta} \right )^2 \\
-    &= \frac{(\alpha+1)(\alpha+\beta)\alpha-(\alpha+\beta+1)\alpha^2}{(\alpha+\beta+1)(\alpha+\beta)^2} \\
+    &\quad Var[X] \newline
+    &= E[X^2]-E[X]^2 \newline
+    &= \frac{(\alpha+1)\alpha}{(\alpha+\beta+1)(\alpha+\beta)} - \left (\frac{\alpha}{\alpha+\beta} \right )^2 \newline
+    &= \frac{(\alpha+1)(\alpha+\beta)\alpha-(\alpha+\beta+1)\alpha^2}{(\alpha+\beta+1)(\alpha+\beta)^2} \newline
     &= \frac{\alpha\beta}{(\alpha+\beta+1)(\alpha+\beta)^2}
     \end{aligned}
     $$
@@ -219,11 +219,11 @@ $$f(x;\alpha,\beta) = \frac{1}{B(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}=\frac
 
 $$
 \begin{aligned}
-&\quad f(\theta,y\mid \alpha,\beta) \\
-&= f(\theta \mid \alpha,\beta)p(y \mid \theta) \\
-&= \frac{1}{B(\alpha,\beta)}\theta^{\alpha-1}(1-\theta)^{\beta-1} \begin{pmatrix}n \\ k\end{pmatrix}\theta^{k}(1-\theta)^{n-k} \\
-&= \frac{1}{B(\alpha,\beta)}\begin{pmatrix}n \\ k\end{pmatrix}\theta^{\alpha+k-1}(1-\theta)^{\beta+n-k-1} \\
-&= \frac{B(\alpha + k ,\beta + n -k)}{B(\alpha,\beta)}\begin{pmatrix}n \\ k\end{pmatrix} \frac{1}{B(\alpha + k ,\beta + n -k)}\theta^{\alpha+k-1}(1-\theta)^{\beta+n-k-1} \\
+&\quad f(\theta,y\mid \alpha,\beta) \newline
+&= f(\theta \mid \alpha,\beta)p(y \mid \theta) \newline
+&= \frac{1}{B(\alpha,\beta)}\theta^{\alpha-1}(1-\theta)^{\beta-1} \begin{pmatrix}n \\ k\end{pmatrix}\theta^{k}(1-\theta)^{n-k} \newline
+&= \frac{1}{B(\alpha,\beta)}\begin{pmatrix}n \\ k\end{pmatrix}\theta^{\alpha+k-1}(1-\theta)^{\beta+n-k-1} \newline
+&= \frac{B(\alpha + k ,\beta + n -k)}{B(\alpha,\beta)}\begin{pmatrix}n \\ k\end{pmatrix} \frac{1}{B(\alpha + k ,\beta + n -k)}\theta^{\alpha+k-1}(1-\theta)^{\beta+n-k-1} \newline
 &= h(y)g(\theta,y)
 \end{aligned}
 $$
@@ -244,10 +244,10 @@ $g(\theta,y)$其实就是形状参数为$\alpha + k ,\beta + n -k$的Beta分布
 
 $$
 \begin{aligned}
-&\quad f(y \mid \alpha,\beta) \\
-&= \int_{-\infty}^{\infty}f(\theta,y\mid \alpha,\beta)d\theta \\
-&= \int_0^1 h(y)g(\theta,y)d\theta \\
-&= h(y)\int_0^1 g(\theta,y)d\theta \\
+&\quad f(y \mid \alpha,\beta) \newline
+&= \int_{-\infty}^{\infty}f(\theta,y\mid \alpha,\beta)d\theta \newline
+&= \int_0^1 h(y)g(\theta,y)d\theta \newline
+&= h(y)\int_0^1 g(\theta,y)d\theta \newline
 &= h(y)
 \end{aligned}
 $$
