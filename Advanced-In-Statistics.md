@@ -43,7 +43,7 @@ $$p(x)=\begin{pmatrix}n\\ x\\ \end{pmatrix}q^x(1-q)^{n-x}\tag{1}$$
 
 把 $(1)$ 表示为变量 $q$ 的函数，即只有 $q$ 这一个变量，写成如下形式
 
-$$f(q)\varpropto q^a(1-q)^b\tag{2}$$
+$$f(q)\propto q^a(1-q)^b\tag{2}$$
 
 其中 $a$ 和 $b$ 是常量，$q\in(0,1)$
 
@@ -59,7 +59,7 @@ $$\int_0^1 f(q)\mathbf dq = \int_0^1 kq^a(1-q)^b \mathbf dq=k\int_0^1 q^a(1-q)^b
 
 $$k=\frac{1}{\int_0^1 q^a(1-q)^b \mathbf dq}$$
 
-记 $\Beta(a+1,b+1)=\int_0^1 q^a(1-q)^b \mathbf dq$，则 $k=\Beta(a+1,b+1)^{-1}$，所以
+记 $B(a+1,b+1)=\int_0^1 q^a(1-q)^b \mathbf dq$，则 $k=B(a+1,b+1)^{-1}$，所以
 
 那么规范化后的 (2) 就是一个分布了 
 
@@ -98,8 +98,8 @@ $$P(K=k)=\int_0^1 \begin{pmatrix}n \\ k\\ \end{pmatrix}x^k(1-x)^{n-k}\mathbf dx
 
 > 先将这 $n+1$ 个球都丢出来，再选择一个球作为红球，任何一个球被选中的概率均为 $\displaystyle 1 \over n+1$，此时红球左边有 $0,1,2...n$ 个球的概率均为 $\displaystyle 1 \over n+1$，有
 >
-> $$P(K=k)=\int_0^1 \begin{pmatrix}n\\k\\ \end{pmatrix}x^k(1-x)^{n-k}\mathbf dx
-=\begin{pmatrix}n\\k\\ \end{pmatrix}\int_0^1 x^k(1-x)^{n-k}\mathbf dx=\frac{1}{n+1}$$
+> $$P(K=k)=\int_0^1 \begin{pmatrix}n\\ k\\ \end{pmatrix}x^k(1-x)^{n-k}\mathbf dx
+=\begin{pmatrix}n\\ k\\ \end{pmatrix}\int_0^1 x^k(1-x)^{n-k}\mathbf dx=\frac{1}{n+1}$$
 >
 > 则
 >
