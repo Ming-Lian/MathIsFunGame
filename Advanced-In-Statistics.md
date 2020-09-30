@@ -39,7 +39,7 @@ Beta分布是一种**连续型概率密度分布**，表示为$x \sim Beta(a,b)$
 
 如果随机变量 $X$ 服从参数为 $n$ 和 $p$ 的二项分布，那么它的概率由概率质量函数（对于连续随机变量，则为概率密度函数）为：
 
-$$p(x)=\begin{pmatrix}n\\x\\ \end{pmatrix}q^x(1-q)^{n-x}\tag{1}$$
+$$p(x)=\begin{pmatrix}n\\ x\\ \end{pmatrix}q^x(1-q)^{n-x}\tag{1}$$
 
 把 $(1)$ 表示为变量 $q$ 的函数，即只有 $q$ 这一个变量，写成如下形式
 
@@ -63,17 +63,17 @@ $$k=\frac{1}{\int_0^1 q^a(1-q)^b \mathbf dq}$$
 
 那么规范化后的 (2) 就是一个分布了 
 
-$$f(q;a+1,b+1) = \frac{1}{\Beta(a+1,b+1)}q^a(1-q)^b\tag{5}$$
+$$f(q;a+1,b+1) = \frac{1}{B(a+1,b+1)}q^a(1-q)^b\tag{5}$$
 
 这就是Beta分布的最原始的来源
 
-对（5）进行适当的改造：取$\alpha=a+1,\beta=b+1$，并将积分 $\Beta(a+1,b+1)=\int_0^1 q^a(1-q)^b \mathbf dq$ 中的q改为t，我们就得到了我们在教材上看到的Beta函数了：
+对（5）进行适当的改造：取$\alpha=a+1,\beta=b+1$，并将积分 $B(a+1,b+1)=\int_0^1 q^a(1-q)^b \mathbf dq$ 中的q改为t，我们就得到了我们在教材上看到的Beta函数了：
 
-$$\Beta(\alpha,\beta)=\int_0^1 t^{\alpha-1}(1-t)^{\beta-1} \mathbf dt\tag{6}$$
+$$B(\alpha,\beta)=\int_0^1 t^{\alpha-1}(1-t)^{\beta-1} \mathbf dt\tag{6}$$
 
 另外，将（5）中的q改为x，则我们就得到了我们在教材上看到的Beta分布的函数：
 
-$$f(x;\alpha,\beta) = \frac{1}{\Beta(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}\tag{7}$$
+$$f(x;\alpha,\beta) = \frac{1}{B(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}\tag{7}$$
 
 到这里我们已经完整地推出了Beta函数（公式(6)）和Beta分布（公式(7)）
 
@@ -85,14 +85,14 @@ $$f(x;\alpha,\beta) = \frac{1}{\Beta(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}\t
 
 假设向长度为1的桌子上扔一个红球（如上图），它会落在0到1这个范围内，设这个长度值为 $x$ ，再向桌上扔一个白球，那么这个白球落在红球左边的概率即为 $x$。 若一共扔了 $n$ 次白球，其中每一次都是相互独立的，假设落在红球左边的白球数量为 $k$，那么随机变量 $K$ 服从参数为 $n$ 和 $x$ 的二项分布，即 $K∼b(n,x)$，有
 
-$$P(K=k|x)=\begin{pmatrix}n\\k\\ \end{pmatrix}x^k(1-x)^{n-k}\tag{1}$$
+$$P(K=k|x)=\begin{pmatrix}n\\ k\\ \end{pmatrix}x^k(1-x)^{n-k}\tag{1}$$
 
 $X$ 服从 $[0,1]$ 上的均匀分布，即 $X∼U[0,1]$
 
 $K$ 对每一个 $x$ 都有上面的分布，对于所有可能的 $x$，$K$ 的分布为
 
-$$P(K=k)=\int_0^1 \begin{pmatrix}n\\k\\ \end{pmatrix}x^k(1-x)^{n-k}\mathbf dx
-=\begin{pmatrix}n\\k\\ \end{pmatrix}\int_0^1 x^k(1-x)^{n-k}\mathbf dx\tag{2}$$
+$$P(K=k)=\int_0^1 \begin{pmatrix}n \\ k\\ \end{pmatrix}x^k(1-x)^{n-k}\mathbf dx
+=\begin{pmatrix}n\\ k\\ \end{pmatrix}\int_0^1 x^k(1-x)^{n-k}\mathbf dx\tag{2}$$
 
 现在，我们换一种方式来丢球：
 
@@ -115,19 +115,19 @@ $$\Gamma(m) = \int_0^{+\infty} e^{-x} x^{m-1} \mathbf dx=(m-1)!\tag{4}$$
 
 由于
 
-$$\Beta(\alpha,\beta)=\int_0^1 t^{\alpha-1}(1-t)^{\beta-1} \mathbf dt$$
+$$B(\alpha,\beta)=\int_0^1 t^{\alpha-1}(1-t)^{\beta-1} \mathbf dt$$
 
 根据(3)，可令$k=\alpha-1,n-k=\beta-1\quad \Rightarrow \quad n=a+b-2$，则
 
-$$\Beta(\alpha,\beta)=\int_0^1 t^{\alpha-1}(1-t)^{\beta-1} \mathbf dt=\frac{(\alpha-1)!(\beta-1)!}{(\alpha+\beta-1)!}$$
+$$B(\alpha,\beta)=\int_0^1 t^{\alpha-1}(1-t)^{\beta-1} \mathbf dt=\frac{(\alpha-1)!(\beta-1)!}{(\alpha+\beta-1)!}$$
 
 又由于(4)，可得
 
-$$\Beta(\alpha,\beta)=\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}$$
+$$B(\alpha,\beta)=\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}$$
 
 因此，Beta分布也可以写成下面的形式：
 
-$$f(x;\alpha,\beta) = \frac{1}{\Beta(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}=\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1}$$
+$$f(x;\alpha,\beta) = \frac{1}{B(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}=\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}x^{\alpha-1}(1-x)^{\beta-1}$$
 
 <a name="expectation-and-variance-of-beta-distribution"><h3>1.3. Beta 分布的期望与方差 [<sup>目录</sup>](#content)</h3></a>
 
@@ -186,14 +186,14 @@ $$f(x;\alpha,\beta) = \frac{1}{\Beta(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}=\
     \begin{aligned}
     &\quad F(x) \\
     &= \int_{-\infty}^x f(x)dx \\
-    &= \int_0^x \frac{1}{\Beta(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1} dx \\
-    &= \frac{1}{\Beta(\alpha,\beta)} \int_0^x x^{\alpha-1}(1-x)^{\beta-1} dx
+    &= \int_0^x \frac{1}{B(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1} dx \\
+    &= \frac{1}{B(\alpha,\beta)} \int_0^x x^{\alpha-1}(1-x)^{\beta-1} dx
     \end{aligned}
     $$
 
     定义$B(x,\alpha,\beta)=\int_0^x x^{\alpha-1}(1-x)^{\beta-1}$，称为不完全Beta函数（incomplete Beta function）则
 
-    $$F(x)=\frac{B(x,\alpha,\beta)}{\Beta(\alpha,\beta)}$$
+    $$F(x)=\frac{B(x,\alpha,\beta)}{B(\alpha,\beta)}$$
 
 <a name="relation-between-beta-distribution-and-binomial-distribution"><h3>1.4. Beta分布与二项分布的关系 [<sup>目录</sup>](#content)</h3></a>
 
@@ -391,7 +391,7 @@ $$p-value=\frac{\dbinom{a+c}{c}\dbinom{b+d}{b}}{\dbinom{n}{a+b}}$$
 
 （3）将每次permutation实验的最小的K个p值混合，得到零假设的概率分布，基于此可以得到对应p值下的FDR：
 
-$$FDR(p)=P(X \ge p) = \frac{\sharp\{X|X\ge p\}}{\sharp\{X\}}$$
+$$FDR(p)=P(X \ge p) = \frac{\sharp\lbrace X|X\ge p\rbrace}{\sharp\lbrace X\rbrace}$$
 
 
 
