@@ -39,7 +39,7 @@ Beta分布是一种**连续型概率密度分布**，表示为$x \sim Beta(a,b)$
 
 如果随机变量 $X$ 服从参数为 $n$ 和 $p$ 的二项分布，那么它的概率由概率质量函数（对于连续随机变量，则为概率密度函数）为：
 
-$$p(x)=\begin{pmatrix}n\\ x\\ \end{pmatrix}q^x(1-q)^{n-x}\tag{1}$$
+$$p(x)=\dbinom{n}{x}q^x(1-q)^{n-x}\tag{1}$$
 
 把 $(1)$ 表示为变量 $q$ 的函数，即只有 $q$ 这一个变量，写成如下形式
 
@@ -85,14 +85,14 @@ $$f(x;\alpha,\beta) = \frac{1}{B(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}\tag{7
 
 假设向长度为1的桌子上扔一个红球（如上图），它会落在0到1这个范围内，设这个长度值为 $x$ ，再向桌上扔一个白球，那么这个白球落在红球左边的概率即为 $x$。 若一共扔了 $n$ 次白球，其中每一次都是相互独立的，假设落在红球左边的白球数量为 $k$，那么随机变量 $K$ 服从参数为 $n$ 和 $x$ 的二项分布，即 $K∼b(n,x)$，有
 
-$$P(K=k|x)=\begin{pmatrix}n\\ k\\ \end{pmatrix}x^k(1-x)^{n-k}\tag{1}$$
+$$P(K=k|x)=\dbinom{n}{k}x^k(1-x)^{n-k}\tag{1}$$
 
 $X$ 服从 $[0,1]$ 上的均匀分布，即 $X∼U[0,1]$
 
 $K$ 对每一个 $x$ 都有上面的分布，对于所有可能的 $x$，$K$ 的分布为
 
-$$P(K=k)=\int_0^1 \begin{pmatrix}n \\ k\\ \end{pmatrix}x^k(1-x)^{n-k}\mathbf dx
-=\begin{pmatrix}n\\ k\\ \end{pmatrix}\int_0^1 x^k(1-x)^{n-k}\mathbf dx\tag{2}$$
+$$P(K=k)=\int_0^1 \dbinom{n}{k}x^k(1-x)^{n-k}\mathbf dx
+=\dbinom{n}{k}\int_0^1 x^k(1-x)^{n-k}\mathbf dx\tag{2}$$
 
 现在，我们换一种方式来丢球：
 
@@ -184,9 +184,9 @@ $$f(x;\alpha,\beta) = \frac{1}{B(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}=\frac
 
     $$
     \begin{aligned}
-    &\quad F(x) \\
-    &= \int_{-\infty}^x f(x)dx \\
-    &= \int_0^x \frac{1}{B(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1} dx \\
+    &\quad F(x) \newline
+    &= \int_{-\infty}^x f(x)dx \newline
+    &= \int_0^x \frac{1}{B(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1} dx \newline
     &= \frac{1}{B(\alpha,\beta)} \int_0^x x^{\alpha-1}(1-x)^{\beta-1} dx
     \end{aligned}
     $$
@@ -221,16 +221,16 @@ $$
 \begin{aligned}
 &\quad f(\theta,y\mid \alpha,\beta) \newline
 &= f(\theta \mid \alpha,\beta)p(y \mid \theta) \newline
-&= \frac{1}{B(\alpha,\beta)}\theta^{\alpha-1}(1-\theta)^{\beta-1} \begin{pmatrix}n \\ k\end{pmatrix}\theta^{k}(1-\theta)^{n-k} \newline
-&= \frac{1}{B(\alpha,\beta)}\begin{pmatrix}n \\ k\end{pmatrix}\theta^{\alpha+k-1}(1-\theta)^{\beta+n-k-1} \newline
-&= \frac{B(\alpha + k ,\beta + n -k)}{B(\alpha,\beta)}\begin{pmatrix}n \\ k\end{pmatrix} \frac{1}{B(\alpha + k ,\beta + n -k)}\theta^{\alpha+k-1}(1-\theta)^{\beta+n-k-1} \newline
+&= \frac{1}{B(\alpha,\beta)}\theta^{\alpha-1}(1-\theta)^{\beta-1} \dbinom{n}{k}\theta^{k}(1-\theta)^{n-k} \newline
+&= \frac{1}{B(\alpha,\beta)}\dbinom{n}{k}\theta^{\alpha+k-1}(1-\theta)^{\beta+n-k-1} \newline
+&= \frac{B(\alpha + k ,\beta + n -k)}{B(\alpha,\beta)}\dbinom{n}{k} \frac{1}{B(\alpha + k ,\beta + n -k)}\theta^{\alpha+k-1}(1-\theta)^{\beta+n-k-1} \newline
 &= h(y)g(\theta,y)
 \end{aligned}
 $$
 
 其中，
 
-$$h(y)=\frac{B(\alpha + k ,\beta + n -k)}{B(\alpha,\beta)}\begin{pmatrix}n \\ k\end{pmatrix}$$
+$$h(y)=\frac{B(\alpha + k ,\beta + n -k)}{B(\alpha,\beta)}\dbinom{n}{k}$$
 
 $h(y)$与$\theta$无关
 
@@ -278,7 +278,7 @@ $$
 在统计测试中，我们根据原假设和替代假设构建实验。 我们的测试将具有以下假设方案：
 
 $$
-Η_0: μ_{treatment} <= μ_{control} \\
+Η_0: μ_{treatment} <= μ_{control} \newline
 Η_A: μ_{treatment} > μ_{control}
 $$
 
