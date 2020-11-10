@@ -13,7 +13,9 @@
     - [2.1.2. R实现](#permutation-test-for-hyposis-test-in-r)
   - [2.2. 利用Permutation Test进行多重假设检验的FDR校正](#permutation-test-for-fdr-correction)
   - [2.3. 用R做permutation test](#permutation-test-use-r)
-
+- [3. 贝叶斯公式](#bayes-formula)
+  - [3.1. 贝叶斯公式与基本比例谬误](#bayes-formula-base-rate-fallacy)
+  - [3.2. 贝叶斯公式与信息修正](#bayes-formula-information-revision)
 
 
 
@@ -393,7 +395,105 @@ $$p-value=\frac{\dbinom{a+c}{c}\dbinom{b+d}{b}}{\dbinom{n}{a+b}}$$
 
 $$FDR(p)=P(X \ge p) = \frac{\sharp\lbrace X|X\ge p\rbrace}{\sharp\lbrace X\rbrace}$$
 
+<a name="bayes-formula"><h2>3. 贝叶斯公式 [<sup>目录</sup>](#content)</h2></a>
 
+<a name="bayes-formula-base-rate-fallacy"><h3>3.1. 贝叶斯公式与基本比例谬误 [<sup>目录</sup>](#content)</h3></a>
+
+已知某种疾病在人群中有2%的患病率，可以通过某种手段来检测这种疾病，这种手段有90%的正确率。90%的正确率很高嘛，似乎被诊断出有病了之后那基本就真的有病了。真的是这样吗？
+
+还是来画下树形图，假设有10000个人，2%的患病率就是200个人有病：
+
+<p align=center><img src=./picture/Statistic-Advanced-base-rate-fallacy-1.png /></p>
+
+正确率90%，这个正确指的是，检测显示有病的是真有病，检测显示没病的是真没病（下图中“确诊”表示正确的诊断，“误诊”表示错误的诊断）：
+
+<p align=center><img src=./picture/Statistic-Advanced-base-rate-fallacy-2.png /></p>
+
+被诊断出有病包含两种可能性，一种是有病人群中的“确诊”和没病人群中的“误诊”：
+
+<p align=center><img src=./picture/Statistic-Advanced-base-rate-fallacy-3.png /></p>
+
+也就是说这10000人里面会有180+980=1160人被诊断有病，而真正有病的不过180人，所以如果被检测出有病，真正有病的概率只有：
+
+$$\frac{180}{180+980}\approx 15.5\%$$
+
+这是由于：
+
+$$P(Sick \mid Positive)=\frac{P(Positive \mid Sick) \cdot P(Sick)}{P(Positive)}=P(Positive \mid Sick) \cdot\frac{P(Sick)}{P(Positive)}$$
+
+其中，$\frac{P(Sick)}{P(Positive)}$称为基本比例
+
+<p align=center><img src=./picture/Statistic-Advanced-base-rate-fallacy-4.png /></p>
+
+在该例子中，$\frac{P(Sick)}{P(Positive)}<1$，所以$P(Sick \mid Positive)<P(Positive \mid Sick)$
+
+<a name="bayes-formula-information-revision"><h3>3.2. 贝叶斯公式与信息修正 [<sup>目录</sup>](#content)</h3></a>
+
+贝叶斯定理除了用于解读基本比例谬误以外，还有一种更常用的解释。先把贝叶斯定理变下形：
+
+$$P(A|B)=\frac{P(B|A)}{P(B)}P(A)$$
+
+还是之前的疾病检测问题，还是之前定义的两个事件：
+
+$$A=“患病的人”,\quad B=“检测显示有病的人”$$
+
+一开始就知道人群中有2%的患病率，这个也称为**先验概率**（大概就是最先就知道的意思），即：
+
+$$P(A)=2\%$$
+
+如果只知道这个信息，那么你患病的概率也是2\%。但有一天去体检，检查显示你有病，这个时候相当于出现了新的信息，或者说B条件出现了，可以通过贝叶斯定理对患病的概率进行调整：
+
+调整的结果当然是真正有病的概率急剧上升：
+
+$$
+\begin{aligned}
+    &\quad P(A|B) \newline
+    &=\frac{P(B|A)}{P(B)}P(A)\newline
+    &=\frac{0.9}{0.02\cdot 0.9+0.98\cdot 0.1}\times 0.02\newline
+    &\approx 15.5\%
+\end{aligned}
+$$
+
+通过这种手段检测出有病后，真正患病的概率只有15.5%，这个概率太低了，现实中，我们会对检测出有病的人群进行复查，复查后如果依然显示有病，那么真正患病的概率为多少？
+
+复查是针对第一次检测出有病的人进行的，在这群人里面患病的概率为15.5%，也就是此时P(A)和所有人时不一样了：
+P(A)=0.155
+
+所以：
+
+$$
+\begin{aligned}
+    &\quad P(A|B) \newline
+    &=\frac{P(A)}{P(B)}P(B|A)\newline
+    \\
+    &=\frac{0.155}{0.155\cdot 0.9+0.845\cdot 0.1}\times 0.9\newline
+    \\
+    &\approx 62.3\%
+\end{aligned}
+$$
+
+现在正确率大大提高了，还不放心可以再复查一次：
+
+$$
+\begin{aligned}
+    &\quad P(A|B) \newline
+    &=\frac{P(A)}{P(B)}P(B|A)\newline
+    \\
+    &=\frac{0.623}{0.623\cdot 0.9+0.377\cdot 0.1}\times 0.9\newline
+    \\
+    &\approx 93.7\%
+\end{aligned}
+$$
+
+另外一个例子——寻找失踪的核潜艇：
+
+> 1968年，美国“天蝎”号核潜艇在大西洋亚速海域离奇沉没，关于事故的原因我们不去深究，事故之后的搜寻过程中采用的方法值得我们注意：
+>
+> 当时，为了寻找“天蝎”号，美国海军划定了一个半径为32千米，数千英尺深的圆形海域。如果要搜遍整个区域几乎是不可能完成的任务。
+>
+> 当时人们想到的最可行方案是聘用三四位潜艇和海域环流顶级专家来推断“天蝎”号的位置，但是美国海军特别计划部的首席科学家约翰.克拉芬提出了不同的方案：把这篇海域分成一个个的小格子，首先请各个邻域的专家猜测每个格子中可能存在残骸的概率，然后搜索概率较高的区域，其中的关键是使用贝叶斯概率的方法，根据搜索的结果不断更新每个格子的概率
+>
+> 最终，在很短的时间内找到了“天蝎”号的残骸，完成了几乎不可能完成的任务
 
 ---
 
@@ -408,3 +508,5 @@ $$FDR(p)=P(X \ge p) = \frac{\sharp\lbrace X|X\ge p\rbrace}{\sharp\lbrace X\rbrac
 (4) [Permutation in R](http://jtleek.com/genstats/inst/doc/03_14_P-values-and-Multiple-Testing.html)
 
 (5) Li, B., Li, T., Pignon, J. et al. Landscape of tumor-infiltrating T cell repertoire of human cancers. Nat Genet 48, 725–732 (2016)
+
+(6) [【马同学】概率论与数理统计教程](https://www.matongxue.com/)
