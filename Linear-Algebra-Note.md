@@ -3,6 +3,7 @@
 <a name="content">目录</a>
 
 [线性代数学习笔记](#title)
+- [0. 线性代数的学科逻辑](#outline)
 - [1. 理解向量与向量空间](#understand-vector-and-vector-space)
 	- [1.1. 向量及向量的运算法则](#vector-and-rules)
 	- [1.2. 线性表示与线性相关](#linear-representation-and-linear-correlation)
@@ -162,6 +163,36 @@
 
 
 <h1 name="title">线性代数学习笔记</h1>
+
+<a name="understand-vector-and-vector-space"><h2>0. 线性代数的学科逻辑 [<sup>目录</sup>](#content)</h2></a>
+
+<p align="center"><img src=./picture/Linear-Algebra_outline-1.png width=600 /></p>
+
+<p align="center"><img src=./picture/Linear-Algebra_outline-2.png width=600 /></p>
+
+<p align="center"><img src=./picture/Linear-Algebra_outline-3.png width=600 /></p>
+
+<p align="center"><img src=./picture/Linear-Algebra_outline-4.png width=600 /></p>
+
+<p align="center"><img src=./picture/Linear-Algebra_outline-5.png width=600 /></p>
+
+<p align="center"><img src=./picture/Linear-Algebra_outline-6.png width=600 /></p>
+
+<p align="center"><img src=./picture/Linear-Algebra_outline-7.png width=600 /></p>
+
+<p align="center"><img src=./picture/Linear-Algebra_outline-8.png width=600 /></p>
+
+<p align="center"><img src=./picture/Linear-Algebra_outline-9.png width=600 /></p>
+
+<p align="center"><img src=./picture/Linear-Algebra_outline-10.png width=600 /></p>
+
+<p align="center"><img src=./picture/Linear-Algebra_outline-11.png width=600 /></p>
+
+<p align="center"><img src=./picture/Linear-Algebra_outline-12.png width=600 /></p>
+
+<p align="center"><img src=./picture/Linear-Algebra_outline-13.png width=600 /></p>
+
+<p align="center"><img src=./picture/Linear-Algebra_outline-14.png width=600 /></p>
 
 <a name="understand-vector-and-vector-space"><h2>1. 理解向量与向量空间 [<sup>目录</sup>](#content)</h2></a>
 
