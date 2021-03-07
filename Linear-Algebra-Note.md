@@ -164,7 +164,7 @@
 
 <h1 name="title">线性代数学习笔记</h1>
 
-<a name="understand-vector-and-vector-space"><h2>0. 线性代数的学科逻辑 [<sup>目录</sup>](#content)</h2></a>
+<a name="outline"><h2>0. 线性代数的学科逻辑 [<sup>目录</sup>](#content)</h2></a>
 
 <p align="center"><img src=./picture/Linear-Algebra_outline-1.png width=600 /></p>
 
